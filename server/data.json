@@ -1,0 +1,34 @@
+{
+  "products": [
+    {
+      "name": "apple",
+      "price": "10000",
+      "quantity": "200",
+      "id": 1
+    },
+    {
+      "name": "apple",
+      "price": "10000",
+      "quantity": "200",
+      "id": 3
+    },
+    {
+      "name": "laptop-lenovo",
+      "price": "27000",
+      "quantity": "500",
+      "id": 4
+    },
+    {
+      "name": "updated",
+      "price": "10000",
+      "quantity": "200",
+      "id": 5
+    },
+    {
+      "name": "updated",
+      "price": "10000",
+      "quantity": "200",
+      "id": 6
+    }
+  ]
+}
