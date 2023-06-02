@@ -3,20 +3,28 @@ import {  Table } from 'react-bootstrap'
 import { NavLink, useNavigate } from 'react-router-dom'
 // import {deleteProduct, getProducts} from '../Product API/product-api'
 import  '../Styles/forms.css';
+import { getAllProduct , getProduct , deleteProduct , add , update  } from '../API/api_controller'
+import { ProductReducer , init_state } from '../reducers/products';
+import { Provider, useDispatch, useSelector, useStore } from 'react-redux';
+import { get_products } from '../actions';
 
 export function AllPlanets() {
-  let navigator = useNavigate()
-//     let [products , setProducts] = useState([])
-//     let getAllProducts = async () => {
-//         let data = await getProducts()
-//         setProducts(data)
-
-//     }
+  // let navigator = useNavigate()
+  let dispatch = useDispatch();
+  let products = useSelector(state => state.products);
+  console.log(getAllProduct())
+  const fetchProducts =  async () => {
+    try {
+      const products = await getAllProduct();
+      dispatch({ type: "get_products", payload: products });
+    } catch (error) {
+      dispatch({ type: "FETCH_PRODUCTS_ERROR", payload: error.message });
+    }
+  };
     
-    
-//     useEffect(() => {
-// 		getAllProducts();
-// 	}, []);
+    useEffect(() => {
+		dispatch(fetchProducts());
+	}, []);
 //   let del = async (id) => {
 //       await deleteProduct(id);
 //       window.location.reload();
@@ -35,7 +43,7 @@ export function AllPlanets() {
   </thead>
   <tbody>
     {
-        [''].map((product) =>{
+        products.map((product) =>{
             return(
                 <tr key={product.id}>
       <td>{product.id}</td>

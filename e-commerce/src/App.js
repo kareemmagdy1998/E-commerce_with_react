@@ -12,7 +12,7 @@ function App() {
   // console.log(counter)
   return (
       <div>
-        {/* <AddForm /> */}
+        {/* <AddForm />
         <button onClick={()=> dispatch(add_product({name:"qewqwe" , price:"prrr"}))}> Add </button>
         <h1>Products List</h1>
       <ul>
@@ -21,7 +21,9 @@ function App() {
             {product.name}: {product.price}
           </li>
         ))}
-      </ul>
+      </ul> */}
+
+      <AllPlanets/>
       </div>
 
   )

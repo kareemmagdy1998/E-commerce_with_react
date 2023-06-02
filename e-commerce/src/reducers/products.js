@@ -1,6 +1,7 @@
 
-let init_state = {
-    products: []
+export let init_state = {
+    products: [],
+    users:[]
 }
 export const ProductReducer = (state = init_state, action) =>{
     switch (action.type) {
@@ -8,14 +9,9 @@ export const ProductReducer = (state = init_state, action) =>{
             return {...state,
                 products: [...state.products, action.payload]
             }
+        case "get_products":
+            return {...state, products: action.payload }
         default: return state    
     } 
 }
-// let counter = 1;
-// export const ProductReducer = (state = counter, action) =>{
-//     switch (action.type) {
-//         case "add_product":
-//             return state+1;
-//         default: return state    
-//     } 
-// }
+
