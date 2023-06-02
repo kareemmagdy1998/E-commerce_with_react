@@ -1,0 +1,29 @@
+.admin-form {
+    font-family: Roboto	;
+    font-size: 1.4rem;
+    width: 60%;
+    padding: 5%;
+    background-color: #43B5A0;
+    color:#ffff !important;
+    border-radius: 14px;
+}
+.admin-form legend {
+    font-size: 2.3rem;
+    color: #ffff 
+}
+.container{
+    width: 100%;
+    margin: 10vh;
+}
+.form-btn{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 13px;
+   
+}
+.planets {
+    background-color: #43B5A0;
+
+}
+
