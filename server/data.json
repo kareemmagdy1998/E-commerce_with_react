@@ -38,6 +38,15 @@
   ],
 
   "users": [
-
+    {
+      "name": "user1",
+      "email": "user1@example.com",
+      "id": 1
+    },
+    {
+      "name": "user2",
+      "email": "user2@example.com",
+      "id": 2
+    }
   ]
 }
