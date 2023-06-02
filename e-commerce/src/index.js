@@ -6,16 +6,23 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.js";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter } from 'react-router-dom';
+import { ProductReducer } from './reducers/products';
+import { createStore } from 'redux'
+import { Provider } from 'react-redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
+
+export const store = createStore (ProductReducer,   composeWithDevTools()
+);
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const st = store.getState();
+console.log(st);
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-   
-  </React.StrictMode>
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
