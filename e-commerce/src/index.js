@@ -20,7 +20,9 @@ const st = store.getState();
 console.log(st);
 root.render(
   <Provider store={store}>
+    <BrowserRouter>
     <App />
+    </BrowserRouter>
   </Provider>,
   document.getElementById('root')
 );
