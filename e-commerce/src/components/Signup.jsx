@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 export function Signup() {
   let navigate=useNavigate();
 
-  const [email,setemail]=useState("ww");
+  const [email,setemail]=useState("");
   const [password,setpassword]=useState("");
   const [name,setname]=useState("");
   
@@ -19,7 +19,7 @@ export function Signup() {
   
   return (
     <div className='body'>
-      {email&& <div className='auth-form-container'>
+      <div className='auth-form-container'>
             <form className='sign' action="" onSubmit={handlesubmit}>
               <label htmlFor="email"></label>
               <input type="email" id='email' name='email' placeholder='Email'   value={email} onChange={(e) => setemail(e.target.value)}/>
@@ -37,7 +37,7 @@ export function Signup() {
           
       
 
-      </div>}
+      </div>
     </div>
   )
 }
