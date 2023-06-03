@@ -7,14 +7,17 @@ import { ProductReducer } from './reducers/products';
 import { Provider, useDispatch, useSelector, useStore } from 'react-redux';
 import { Login } from './components/Login';
 import {Signup} from './components/Signup';
+import { Product } from "./components/Product";
+import { CartPage } from "./components/CartPage";
+import { MyNav } from "./components/MyNav";
 
 function App() {
   let dispatch = useDispatch();
-  let products = useSelector(state => state.products);
+  let products = useSelector((state) => state.products);
   // console.log(counter)
   return (
-      <div>
-        {/* <AddForm />
+    <div>
+      {/* <AddForm />
         <button onClick={()=> dispatch(add_product({name:"qewqwe" , price:"prrr"}))}> Add </button>
         <h1>Products List</h1>
       <ul>
@@ -32,10 +35,17 @@ function App() {
 
       </Routes>
       
-      </div>
+      
 
-  )
+  
+      {/* <AllPlanets/> */}
+      {/* <Product></Product>
+      <Footer></Footer> */}
+      <MyNav></MyNav>
 
+      <CartPage></CartPage>
+    </div>
+  );
 }
 
 export default App;
