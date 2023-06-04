@@ -6,29 +6,57 @@ import { useNavigate } from "react-router-dom";
 
 
 export function Login() {
-    const [email,setemail]=useState("");
-    const [password,setpassword]=useState("");
 
-    const handlesubmit = (e) => {
-        e.preventDefault();
-        console.log(email)
-        console.log(password)
-        setpassword("");
-        setemail("");
-    };
-  
     let navigate=useNavigate();
+
+    
+  const [formValues, setFormValues] = useState({
+    email: '',
+    password: ''
+  });
+
+  const [formErrors, setFormErrors] = useState({
+    email: '',
+    password: ''
+  });
+
+  const OperationHandler = (e) => {
+    setFormValues({
+      ...formValues,
+      [e.target.name]: e.target.value
+    });
+
+    // Perform validation on the input field
+    switch (e.target.name) {
+      case 'email':
+        setFormErrors({
+          ...formErrors,
+          email: /^\S+@\S+\.\S+$/.test(e.target.value) ? '' : 'Invalid email address'
+        });
+        break;
+      case 'password':
+        setFormErrors({
+          ...formErrors,
+          password: e.target.value.length < 6 ? 'Password must be at least 6 characters' : ''
+        });
+        break;
+      default:
+        break;
+    }
+  };
+
+   
 
 
   return (
     <div className='body'>
         <div className='auth-form-container'>
-        <form className='login center' action="" onSubmit={handlesubmit}>
+        <form className='login center' action="" >
             <label htmlFor="email"></label>
-            <input type="email" id='email' name='email' placeholder='Email'   value={email} onChange={(e) => setemail(e.target.value)}/>
+            <input type="email" id='email' name='email' placeholder='Email'    onChange={OperationHandler}/>
 
             <label htmlFor="password"></label>
-            <input type="password" id='password' name='password' placeholder='Password'  value={password} onChange={(e) => setpassword(e.target.value)}/>
+            <input type="password" id='password' name='password' placeholder='Password'   onChange={OperationHandler}/>
             <button type='submit' className='bg-success sub'> Log in </button>
            <button className='link-btn ' onClick={() =>navigate('/signup')} >Do not have Account? Sign UP</button> 
         </form>
