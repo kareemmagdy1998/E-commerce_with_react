@@ -5,11 +5,10 @@ import { AllPlanets } from './components/AllPlanets';
 import { add_product } from './actions';
 import { ProductReducer } from './reducers/products';
 import { Provider, useDispatch, useSelector, useStore } from 'react-redux';
-import { Product } from './Components/Product';
-import { Card } from './Components/Card';
+import { Product } from './components/Product';
+import { Card } from './components/Card';
 import { Login } from './components/Login';
 import {Signup} from './components/Signup';
-import { Product } from "./components/Product";
 import { CartPage } from "./components/CartPage";
 import { MyNav } from "./components/MyNav";
 
