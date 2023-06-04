@@ -2,6 +2,8 @@ import React from 'react'
 import { useState } from 'react'
 import "../css/login.css";
 import {NavLink} from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
+
 
 export function Login() {
     const [email,setemail]=useState("");
@@ -14,7 +16,8 @@ export function Login() {
         setpassword("");
         setemail("");
     };
-
+  
+    let navigate=useNavigate();
 
 
   return (
@@ -27,7 +30,7 @@ export function Login() {
             <label htmlFor="password"></label>
             <input type="password" id='password' name='password' placeholder='Password'  value={password} onChange={(e) => setpassword(e.target.value)}/>
             <button type='submit' className='bg-success sub'> Log in </button>
-           <NavLink to=""><button className='link-btn ' >Do not have Account? Sign UP</button></NavLink> 
+           <button className='link-btn ' onClick={() =>navigate('/signup')} >Do not have Account? Sign UP</button> 
         </form>
       
         </div>
