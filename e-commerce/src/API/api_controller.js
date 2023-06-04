@@ -28,10 +28,10 @@ export let add =  async (product) => {
     }
 }
 
-export let update=  async (product) => {
+export let update=  async (id , product) => {
 
     try {
-         await axios.put(`http://localhost:3005/products/${[product.id]}`,product);
+         await axios.put(`http://localhost:3005/products/${[id]}`,product);
     } catch (error) {
         console.log(error);
     }

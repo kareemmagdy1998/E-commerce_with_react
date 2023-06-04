@@ -1,34 +1,49 @@
 import React, { useEffect, useState } from 'react'
 import {  Table } from 'react-bootstrap'
-import { NavLink, useNavigate } from 'react-router-dom'
-// import {deleteProduct, getProducts} from '../Product API/product-api'
+import { BrowserRouter as Router, NavLink, Switch, Route } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 import  '../Styles/forms.css';
 import { getAllProduct , getProduct , deleteProduct , add , update  } from '../API/api_controller'
-import { ProductReducer , init_state } from '../reducers/products';
-import { Provider, useDispatch, useSelector, useStore } from 'react-redux';
-import { get_products } from '../actions';
+import {  useDispatch, useSelector } from 'react-redux';
+import { get_products , delete_product } from '../actions';
+
+
 
 export function AllPlanets() {
-  // let navigator = useNavigate()
+  let navigator = useNavigate()
   let dispatch = useDispatch();
   let products = useSelector(state => state.products);
-  console.log(getAllProduct())
+
   const fetchProducts =  async () => {
-    try {
       const products = await getAllProduct();
-      dispatch({ type: "get_products", payload: products });
-    } catch (error) {
-      dispatch({ type: "FETCH_PRODUCTS_ERROR", payload: error.message });
-    }
+      return products
   };
+
+
+  let del = async (id) => {
+    await deleteProduct(id);
+  }
+
+
+  let delete_Product = async (id) => {
+    await del(id);
+    dispatch(delete_product(id));
+  }
     
     useEffect(() => {
-		dispatch(fetchProducts());
-	}, []);
-//   let del = async (id) => {
-//       await deleteProduct(id);
-//       window.location.reload();
-    // }
+      const fetchData = async () => {
+        const data = await fetchProducts();
+        dispatch(get_products(data));
+      };
+      fetchData();
+	}, [dispatch]);
+
+
+
+  let goToAdd = () => {
+    navigator('/product/0/edit')
+  }
+
   return (
     <div className='container text-center p-5'>
     <Table striped bordered hover variant="success" >
@@ -55,7 +70,7 @@ export function AllPlanets() {
 										<NavLink to={`/product/${product.id}/edit`}>
 											<i className=' text-success  mx-1 bi bi-pencil-square'></i>
 										</NavLink>
-										<i  className=' text-danger mx-1 bi bi-trash3-fill'></i>
+										<i  onClick={()=>delete_Product(product.id)} className=' text-danger mx-1 bi bi-trash3-fill'></i>
 										<NavLink to={`/product/${product.id}`}>
 											<i className=' text-dark mx-1 bi bi-eye-fill'></i>
 										</NavLink>
@@ -68,6 +83,7 @@ export function AllPlanets() {
     
   </tbody>
 </Table>
+    <btn className='btn btn-primary' onClick={goToAdd}>Add Product</btn>
     </div>
   )
 }

@@ -1,29 +1,23 @@
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import { AddForm } from './Components/AddForm';
 import { AllPlanets } from './Components/AllPlanets';
 import { add_product } from './actions';
 import { ProductReducer } from './reducers/products';
 import { Provider, useDispatch, useSelector, useStore } from 'react-redux';
+import { Product } from './Components/Product';
+import { Card } from './Components/Card';
 
 function App() {
-  let dispatch = useDispatch();
-  let products = useSelector(state => state.products);
-  // console.log(counter)
   return (
       <div>
-        {/* <AddForm />
-        <button onClick={()=> dispatch(add_product({name:"qewqwe" , price:"prrr"}))}> Add </button>
-        <h1>Products List</h1>
-      <ul>
-        {products.map(product => (
-          <li>
-            {product.name}: {product.price}
-          </li>
-        ))}
-      </ul> */}
+      <Routes>
+        <Route path="adminpanel" element={<AllPlanets/>}/>
+        <Route path="product/:id/edit" element={<AddForm/>}/>
+        <Route path="products" element={<Product/>}/>
+        <Route path="card" element={<Card/>}/>
 
-      <AllPlanets/>
+      </Routes>
       </div>
 
   )
