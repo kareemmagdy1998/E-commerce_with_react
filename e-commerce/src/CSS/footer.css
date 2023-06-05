@@ -1,5 +1,5 @@
 .customfooter {
   position: absolute;
-  /* bottom: 0; */
+  top: 100%;
   width: 100%;
 }

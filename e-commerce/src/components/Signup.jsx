@@ -9,7 +9,8 @@ export function Signup() {
   const [formValues, setFormValues] = useState({
     name: '',
     email: '',
-    password: ''
+    password: '',
+    role: false,
   });
 
   const [formErrors, setFormErrors] = useState({

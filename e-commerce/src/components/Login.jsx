@@ -3,6 +3,7 @@ import { useState } from 'react';
 import "../css/login.css";
 import { useNavigate } from 'react-router-dom';
 import { userLogin ,getAllUsers,loggedUser} from '../API/api_controller';
+import { MyNav } from './MyNav';
 
 export function Login() {
   const navigate = useNavigate();
@@ -16,6 +17,8 @@ export function Login() {
     email: '',
     password: ''
   });
+
+
 
   const handleChange = (e) => {
     setFormValues({
@@ -51,7 +54,7 @@ export function Login() {
       if (userExist) {
         
        const currentUser = loggedUser(users,"email","password",formValues);
-        navigate('/products');
+        navigate('/');
      }
 
      else{
@@ -83,6 +86,7 @@ export function Login() {
           <button className='link-btn' onClick={() => navigate('/signup')}>Do not have Account? Sign UP</button>
         </form>
       </div>
+
     </div>
   );
 }
