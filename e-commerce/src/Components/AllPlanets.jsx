@@ -6,6 +6,7 @@ import  '../Styles/forms.css';
 import { getAllProduct , getProduct , deleteProduct , add , update  } from '../API/api_controller'
 import {  useDispatch, useSelector } from 'react-redux';
 import { get_products , delete_product } from '../actions';
+import {NotAuthorized} from './components/NotAuthorized';
 
 
 
@@ -90,6 +91,6 @@ if(user_role.role){
   )
 }
 else {
-  return(<div>Not Authorized</div>)
+  return(<div><NotAuthorized/></div>)
 }
 }
