@@ -73,3 +73,14 @@ export const get_card = (username) => {
         payload : username
     }
 };
+export const set_user = (user) => {
+    return {
+        type : 'set_user',
+        payload : user
+    }
+};
+export const log_out = () => {
+    return {
+        type : 'log_out',
+    }
+};
