@@ -1,9 +1,9 @@
 import React from "react";
-import "../CSS/footer.css";
+import "../css/footer.css";
 export function Footer() {
   return (
-    <div>
-      <footer className="bg-dark text-white pt-3 pb-3 customfooter">
+    <div className="customfooter">
+      <footer className="bg-dark text-white pt-3 pb-3 bottom-0">
         <div className="container text-center ">
           <div className="row text-center">
             <div className="mx-auto mt-3">

@@ -1,7 +1,13 @@
 
 export let init_state = {
     products: [],
-    user:"hashem",
+    user:null
+        // "name": "Kareem",
+        // "email": "user@gmail.com",
+        // "password": "asd123",
+        // "role": false,
+        // "id": 1
+      ,
     card:[]
 }
 export const ProductReducer = (state = init_state, action) =>{

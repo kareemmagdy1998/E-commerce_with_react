@@ -11,10 +11,14 @@ import { Login } from './components/Login';
 import {Signup} from './components/Signup';
 import { CartPage } from "./components/CartPage";
 import { MyNav } from "./components/MyNav";
+import { Slider } from "./components/Slider";
+import { Footer } from "./components/Footer";
+import {Home} from "./pages/Home"
 
 function App() {
   return (
       <div>
+        < MyNav />
       <Routes>
         <Route path="adminpanel" element={<AllPlanets/>}/>
         <Route path="product/:id/edit" element={<AddForm/>}/>
@@ -22,19 +26,16 @@ function App() {
         <Route path="card" element={<Card/>}/>
         <Route path='/signup' element={<Signup />}/>
         <Route path='/login' element={<Login />}/>
+        <Route path='/nav' element={<MyNav />}/>
+        <Route path='/' element={<Home />}/>
+        <Route path='/slider' element={<Slider />}/>
+
+
 
       </Routes>
+      <Footer />
       </div>
 
-     
-      
-
-  
-   
-      // <MyNav></MyNav>
-
-    //   <CartPage></CartPage>
-    // </div>
   );
 }
 
