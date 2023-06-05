@@ -25,12 +25,12 @@ let navigate = useNavigate()
         <Nav className="me-auto">
           <Nav.Link href="/">Home</Nav.Link>
           <Nav.Link href="/products">Products</Nav.Link>
-          {currentUser&&currentUser.role && <Nav.Link href="dminpanel">Admin panel</Nav.Link>}
+          {currentUser&&currentUser.role && <Nav.Link href="adminpanel">Admin panel</Nav.Link>}
         </Nav>
         <Nav className="mx-5">
           {!currentUser&& <Nav.Link  href="/login">Login</Nav.Link>}
           {currentUser&& <Nav.Link className="text-capitalize fs-5"> {currentUser.name} </Nav.Link>}
-          {currentUser&& <Nav.Link className="fs-5"> <BsFillCartCheckFill /> </Nav.Link>}
+          {currentUser&& <Nav.Link className="fs-5" href="/card"> <BsFillCartCheckFill /> </Nav.Link>}
           {currentUser&& <Nav.Link className="btn fs-5" onClick={logout}>Sign out</Nav.Link>}
 
 

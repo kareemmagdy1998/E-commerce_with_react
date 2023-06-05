@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from 'reactstrap';
 
-export default function NotAuthorized() {
+export function NotAuthorized() {
   return (
     <div className="container">
       <div className="row justify-content-center">
