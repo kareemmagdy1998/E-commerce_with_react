@@ -28,6 +28,7 @@ function App() {
         <Route path='/login' element={<Login />}/>
         <Route path='/nav' element={<MyNav />}/>
         <Route path='/' element={<Home />}/>
+        <Route path='/slider' element={<Slider />}/>
 
 
 
