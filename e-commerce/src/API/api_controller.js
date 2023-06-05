@@ -80,6 +80,20 @@ export let getAllUsers = async () => {
   };
 
 
+  export function userLogin(users, attr1,attr2, formValues) {
+
+    return users.some(item => item.hasOwnProperty(attr1)&&item.hasOwnProperty(attr2) && item[attr1] === formValues[attr1]&&item[attr2] === formValues[attr2]);
+    
+  };
+
+
+  export function loggedUser(users, attr1,attr2, formValues) {
+
+    return users.find(item => item.hasOwnProperty(attr1)&&item.hasOwnProperty(attr2) && item[attr1] === formValues[attr1]&&item[attr2] === formValues[attr2]);
+    
+  };
+
+
 
 
 

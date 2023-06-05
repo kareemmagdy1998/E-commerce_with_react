@@ -1,15 +1,12 @@
-import React from 'react'
-import { useState } from 'react'
+import React from 'react';
+import { useState } from 'react';
 import "../css/login.css";
-import {NavLink} from 'react-router-dom'
-import { useNavigate } from "react-router-dom";
-
+import { useNavigate } from 'react-router-dom';
+import { userLogin ,getAllUsers,loggedUser} from '../API/api_controller';
 
 export function Login() {
+  const navigate = useNavigate();
 
-    let navigate=useNavigate();
-
-    
   const [formValues, setFormValues] = useState({
     email: '',
     password: ''
@@ -20,7 +17,7 @@ export function Login() {
     password: ''
   });
 
-  const OperationHandler = (e) => {
+  const handleChange = (e) => {
     setFormValues({
       ...formValues,
       [e.target.name]: e.target.value
@@ -44,24 +41,48 @@ export function Login() {
         break;
     }
   };
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+      const users = await getAllUsers();
+      const userExist=userLogin(users,"email","password",formValues);
 
-   
+      if (userExist) {
+        
+       const currentUser = loggedUser(users,"email","password",formValues);
+        navigate('/products');
+     }
 
+     else{
+      setFormValues({
+        email: '',
+        password: ''
+      });
+
+      e.target.reset();
+
+      alert('this account does not exist, if you don\'t have account registre ');
+     }
+
+}
 
   return (
     <div className='body'>
-        <div className='auth-form-container'>
-        <form className='login center' action="" >
-            <label htmlFor="email"></label>
-            <input type="email" id='email' name='email' placeholder='Email'    onChange={OperationHandler}/>
+      <div className='auth-form-container'>
+        <form className='login center' onSubmit={handleSubmit}>
+          <label htmlFor="email"></label>
+          <input type="email" id='email' name='email' placeholder='Email' value={formValues.email} onChange={handleChange} />
+          {formErrors.email && <span className="error">{formErrors.email}</span>}
 
-            <label htmlFor="password"></label>
-            <input type="password" id='password' name='password' placeholder='Password'   onChange={OperationHandler}/>
-            <button type='submit' className='bg-success sub'> Log in </button>
-           <button className='link-btn ' onClick={() =>navigate('/signup')} >Do not have Account? Sign UP</button> 
+          <label htmlFor="password"></label>
+          <input type="password" id='password' name='password' placeholder='Password' value={formValues.password} onChange={handleChange} />
+          {formErrors.password && <span className="error">{formErrors.password}</span>}
+
+          <button type='submit' className='bg-success sub'>Log in</button>
+          <button className='link-btn' onClick={() => navigate('/signup')}>Do not have Account? Sign UP</button>
         </form>
-      
-        </div>
+      </div>
     </div>
-  )
+  );
 }
