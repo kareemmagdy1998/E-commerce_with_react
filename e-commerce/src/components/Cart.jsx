@@ -8,7 +8,9 @@ export function Cart() {
     let card_data = useSelector(state => state.card);
     let products = useSelector(state => state.products);
     const [total_price, setTotalPrice] = useState();
-    let user = useSelector(state => state.user);
+    // let user = useSelector(state => state.user);
+    let user = JSON.parse(localStorage.getItem('token'));
+
     let current_card_data = card_data.filter(item => item.username.email == user.email)
 
 

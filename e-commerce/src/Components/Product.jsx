@@ -10,8 +10,8 @@ export function Product() {
   let dispatch = useDispatch();
   let products = useSelector(state => state.products);
   let card_data = useSelector(state => state.card);
-  let user = useSelector(state => state.user);
-  let user_card_checker = JSON.parse(localStorage.getItem('token'));
+  let stateuser = useSelector(state => state.user);
+  let user = JSON.parse(localStorage.getItem('token'));
 
   const fetchProducts =  async () => {
       const products = await getAllProduct();
@@ -45,11 +45,13 @@ useEffect(() => {
 }, [card_data]);
 
   let add = (product) => { 
-    let existing_item = card_data.find((item)=> item.product.id === product.id && item.username == user);
+    let existing_item = card_data.find((item)=> item.product.id === product.id && JSON.stringify(item.username) === JSON.stringify(user));
     if (existing_item) {
+
       dispatch(add_quantity_to_item(product.id , product.user_quantity))
     }
     else {
+     
       dispatch(add_to_card(product , user));
     }
   }
@@ -87,7 +89,7 @@ useEffect(() => {
                     {product.user_quantity}
                     <button className=" btn  btn-danger" onClick={() => reduceQuantity(product.id)}> - </button>
                   </Card.Title>
-                  {user_card_checker && <Button variant="secondary" onClick={() => add(product)}>Add To Cart</Button>}
+                  {user && <Button variant="secondary" onClick={() => add(product)}>Add To Cart</Button>}
                 </Card.Body>
               </Card>
             </div>
