@@ -14,7 +14,7 @@ export function AllPlanets() {
   let dispatch = useDispatch();
   let products = useSelector(state => state.products);
   let user = useSelector(state => state.user)
-  let user_role = localStorage.getItem('token');
+  let user_role = JSON.parse(localStorage.getItem('token'));
   console.log(user_role + "asdasd ")
   const fetchProducts =  async () => {
       const products = await getAllProduct(); 
@@ -45,7 +45,7 @@ export function AllPlanets() {
   let goToAdd = () => {
     navigator('/product/0/edit')
   }
-if(user.role == 'admin'){
+if(user_role.role){
   return (
     <div className='container text-center p-5'>
     <Table striped bordered hover variant="success" >

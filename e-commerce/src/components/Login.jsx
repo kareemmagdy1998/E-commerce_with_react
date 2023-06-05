@@ -58,7 +58,7 @@ export function Login() {
         
        const currentUser = loggedUser(users,"email","password",formValues);
        dispatch(set_user(currentUser));
-       localStorage.setItem('token', currentUser);
+       localStorage.setItem('token', JSON.stringify(currentUser));
 
         navigate('/products');
      }

@@ -12,6 +12,9 @@ import { useAuth} from './custom hooks/hooks';
 import { log_out } from './actions';
 import { useDispatch, useSelector } from 'react-redux';
 import NotAuthorized from './components/NotAuthorized';
+import {Footer} from './components/Footer';
+import { Home} from './pages/Home';
+import {Slider} from './components/Slider';
 
 function App() {
   const requireAuth = useAuth();
@@ -27,25 +30,25 @@ function App() {
   
     return (
       <div>
-        <MyNav/>
-       
-          
-         
-      
+        < MyNav />
+      <Routes>
+        <Route path="adminpanel" element={<AllPlanets/>}/>
+        <Route path="product/:id/edit" element={<AddForm/>}/>
+        <Route path="products" element={<Product/>}/>
+        <Route path="card" element={<Cart/>}/>
+        <Route path='/signup' element={<Signup />}/>
+        <Route path='/login' element={<Login />}/>
+        <Route path='/nav' element={<MyNav />}/>
+        <Route path='/' element={<Home />}/>
+        <Route path='/slider' element={<Slider />}/>
 
-            <Routes>
-            <Route path="cart" element={<Cart />} />
 
-        <Route path="products" element={<Product />} />
-        <Route path="adminpanel" element={<AllPlanets />} />
-        <Route path="product/:id/edit" element={<AddForm />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/notauthorized" element={<NotAuthorized />} />
-        </Routes>
-        <button onClick={logout}>Logout</button>
+
+      </Routes>
+      <Footer />
       </div>
-    );
+
+  );
 }
 
 export default App;
