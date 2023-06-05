@@ -1,7 +1,7 @@
 
 export let init_state = {
     products: [],
-    user:"hashem",
+    user:{},
     card:[]
 }
 export const ProductReducer = (state = init_state, action) =>{
@@ -33,7 +33,7 @@ export const ProductReducer = (state = init_state, action) =>{
                 
             return {...state, card: state.card.map((item) => 
                 {
-                    if(item.product.id == action.payload && item.username == state.user)
+                    if(item.product.id == action.payload && item.username.email == state.user.email)
                 {
                     item.product.user_quantity = item.product.user_quantity + action.quantity;
                     return item;
@@ -44,7 +44,7 @@ export const ProductReducer = (state = init_state, action) =>{
             case "reduce_quantity_from_item":
             return {...state, card: state.card.map((item) => 
                 {
-                    if(item.product.id == action.payload && item.product.user_quantity > 1 && item.username == state.user)
+                    if(item.product.id == action.payload && item.product.user_quantity > 1 && item.username.email == state.user.email)
                 {
                     --item.product.user_quantity;
                     return item;
@@ -67,7 +67,7 @@ export const ProductReducer = (state = init_state, action) =>{
             case "remove_item":
                 return{
                     ...state, card: state.card.filter((item) => {
-                        if (item.product.id == action.payload && item.username == state.user)
+                        if (item.product.id == action.payload && item.username.email == state.user.email)
                         {
                             return false;
                         }
@@ -81,6 +81,13 @@ export const ProductReducer = (state = init_state, action) =>{
                       ...state,
                       card: action.payload
                     };   
+
+                case 'set_user':
+                    return {...state,
+                        user: action.payload};
+                case 'logout':
+                    return {...state,
+                        user: {}};      
                        
         default: return state    
     } 

@@ -7,11 +7,11 @@ export function MyNav() {
       <Navbar bg="dark" variant="dark">
         <Navbar.Brand href="#home">Navbar</Navbar.Brand>
         <Nav className="me-auto">
-          <Nav.Link href="#home">Home</Nav.Link>
-          <Nav.Link href="#Products">Products</Nav.Link>
+          <Nav.Link href="/card">Card</Nav.Link>
+          <Nav.Link href="/products">Products</Nav.Link>
         </Nav>
         <Nav className="mx-5">
-          <Nav.Link href="#Login">Login</Nav.Link>
+          <Nav.Link href="/adminpanel">adminpannel</Nav.Link>
         </Nav>
       </Navbar>
     </div>

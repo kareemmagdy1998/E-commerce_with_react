@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {  Table } from 'react-bootstrap'
-import { BrowserRouter as Router, NavLink, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, NavLink, Switch, Route, json } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom'
 import  '../Styles/forms.css';
 import { getAllProduct , getProduct , deleteProduct , add , update  } from '../API/api_controller'
@@ -13,7 +13,9 @@ export function AllPlanets() {
   let navigator = useNavigate()
   let dispatch = useDispatch();
   let products = useSelector(state => state.products);
-
+  let user = useSelector(state => state.user)
+  let user_role = localStorage.getItem('token');
+  console.log(user_role + "asdasd ")
   const fetchProducts =  async () => {
       const products = await getAllProduct(); 
       return products 
@@ -43,7 +45,7 @@ export function AllPlanets() {
   let goToAdd = () => {
     navigator('/product/0/edit')
   }
-
+if(user.role == 'admin'){
   return (
     <div className='container text-center p-5'>
     <Table striped bordered hover variant="success" >
@@ -86,4 +88,8 @@ export function AllPlanets() {
     <btn className='btn btn-primary' onClick={goToAdd}>Add Product</btn>
     </div>
   )
+}
+else {
+  return(<div>Not Authorized</div>)
+}
 }

@@ -55,7 +55,7 @@ useEffect(() => {
 
 
   let getCard = () => { 
-    navigator('/card')
+    navigator('/cart')
   }
 
   let addQuantity = (id) => {
@@ -86,7 +86,7 @@ useEffect(() => {
                     {product.user_quantity}
                     <button className=" btn  btn-danger" onClick={() => reduceQuantity(product.id)}> - </button>
                   </Card.Title>
-                  <Button variant="secondary" onClick={() => add(product)}>Add To Cart</Button>
+                  {user && <Button variant="secondary" onClick={() => add(product)}>Add To Cart</Button>}
                 </Card.Body>
               </Card>
             </div>

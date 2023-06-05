@@ -3,10 +3,14 @@ import { useState } from 'react';
 import "../css/login.css";
 import { useNavigate } from 'react-router-dom';
 import { userLogin ,getAllUsers,loggedUser} from '../API/api_controller';
+import { useDispatch, useSelector } from 'react-redux';
+import { set_user } from '../actions';
 
 export function Login() {
   const navigate = useNavigate();
-
+  let dispatch = useDispatch()
+  const user = useSelector(state => state.user);
+  console.log(user);
   const [formValues, setFormValues] = useState({
     email: '',
     password: ''
@@ -51,6 +55,9 @@ export function Login() {
       if (userExist) {
         
        const currentUser = loggedUser(users,"email","password",formValues);
+       dispatch(set_user(currentUser));
+       localStorage.setItem('token', currentUser);
+
         navigate('/products');
      }
 
@@ -62,7 +69,7 @@ export function Login() {
 
       e.target.reset();
 
-      alert('this account does not exist, if you don\'t have account registre ');
+      alert('Envalid email or password');
      }
 
 }
