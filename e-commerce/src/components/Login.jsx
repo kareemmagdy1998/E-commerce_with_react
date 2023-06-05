@@ -1,39 +1,88 @@
-import React from 'react'
-import { useState } from 'react'
+import React from 'react';
+import { useState } from 'react';
 import "../css/login.css";
-import {NavLink} from 'react-router-dom'
-import { useNavigate } from "react-router-dom";
-
+import { useNavigate } from 'react-router-dom';
+import { userLogin ,getAllUsers,loggedUser} from '../API/api_controller';
 
 export function Login() {
-    const [email,setemail]=useState("");
-    const [password,setpassword]=useState("");
+  const navigate = useNavigate();
 
-    const handlesubmit = (e) => {
-        e.preventDefault();
-        console.log(email)
-        console.log(password)
-        setpassword("");
-        setemail("");
-    };
+  const [formValues, setFormValues] = useState({
+    email: '',
+    password: ''
+  });
+
+  const [formErrors, setFormErrors] = useState({
+    email: '',
+    password: ''
+  });
+
+  const handleChange = (e) => {
+    setFormValues({
+      ...formValues,
+      [e.target.name]: e.target.value
+    });
+
+    // Perform validation on the input field
+    switch (e.target.name) {
+      case 'email':
+        setFormErrors({
+          ...formErrors,
+          email: /^\S+@\S+\.\S+$/.test(e.target.value) ? '' : 'Invalid email address'
+        });
+        break;
+      case 'password':
+        setFormErrors({
+          ...formErrors,
+          password: e.target.value.length < 6 ? 'Password must be at least 6 characters' : ''
+        });
+        break;
+      default:
+        break;
+    }
+  };
   
-    let navigate=useNavigate();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+      const users = await getAllUsers();
+      const userExist=userLogin(users,"email","password",formValues);
 
+      if (userExist) {
+        
+       const currentUser = loggedUser(users,"email","password",formValues);
+        navigate('/products');
+     }
+
+     else{
+      setFormValues({
+        email: '',
+        password: ''
+      });
+
+      e.target.reset();
+
+      alert('this account does not exist, if you don\'t have account registre ');
+     }
+
+}
 
   return (
     <div className='body'>
-        <div className='auth-form-container'>
-        <form className='login center' action="" onSubmit={handlesubmit}>
-            <label htmlFor="email"></label>
-            <input type="email" id='email' name='email' placeholder='Email'   value={email} onChange={(e) => setemail(e.target.value)}/>
+      <div className='auth-form-container'>
+        <form className='login center' onSubmit={handleSubmit}>
+          <label htmlFor="email"></label>
+          <input type="email" id='email' name='email' placeholder='Email' value={formValues.email} onChange={handleChange} />
+          {formErrors.email && <span className="error">{formErrors.email}</span>}
 
-            <label htmlFor="password"></label>
-            <input type="password" id='password' name='password' placeholder='Password'  value={password} onChange={(e) => setpassword(e.target.value)}/>
-            <button type='submit' className='bg-success sub'> Log in </button>
-           <button className='link-btn ' onClick={() =>navigate('/signup')} >Do not have Account? Sign UP</button> 
+          <label htmlFor="password"></label>
+          <input type="password" id='password' name='password' placeholder='Password' value={formValues.password} onChange={handleChange} />
+          {formErrors.password && <span className="error">{formErrors.password}</span>}
+
+          <button type='submit' className='bg-success sub'>Log in</button>
+          <button className='link-btn' onClick={() => navigate('/signup')}>Do not have Account? Sign UP</button>
         </form>
-      
-        </div>
+      </div>
     </div>
-  )
+  );
 }
