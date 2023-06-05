@@ -9,6 +9,7 @@ export function Api() {
         "quantity":"200"
     };
 
+
     let getAllProduct = async () => {
 		try {
 			let response = await axios.get("http://localhost:3005/products");
@@ -52,6 +53,18 @@ export function Api() {
 		let response = await axios.get(`http://localhost:3005/products/${id}`);
 		console.log(response.data);
 	};
+
+
+
+    let regiester =  async (user) => {
+
+        try {
+             await axios.post("http://localhost:3005/users",user);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
 
 
 
