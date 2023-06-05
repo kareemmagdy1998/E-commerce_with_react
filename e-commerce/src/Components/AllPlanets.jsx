@@ -15,8 +15,8 @@ export function AllPlanets() {
   let products = useSelector(state => state.products);
 
   const fetchProducts =  async () => {
-      const products = await getAllProduct();
-      return products
+      const products = await getAllProduct(); 
+      return products 
   };
 
 
