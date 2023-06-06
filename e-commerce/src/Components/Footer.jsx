@@ -2,10 +2,10 @@ import React from "react";
 import "../css/footer.css";
 export function Footer() {
   return (
-    <div className="customfooter">
-      <footer className="bg-dark text-white pt-3 pb-3 bottom-0">
-        <div className="container text-center ">
-          <div className="row text-center">
+    <div >
+      <footer className="bg-dark text-white pt-3 pb-3 bottom-0 "  id="main-footer">
+        <div className="container text-center footer-content">
+          <div className="row text-center first-item">
             <div className="mx-auto mt-3">
               <h6 className="text-secondary">
                 &copy;2023 Plant Shop.Powered by Plant Shop.

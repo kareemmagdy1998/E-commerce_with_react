@@ -4,6 +4,7 @@ import { getAllProduct , getProduct  } from '../API/api_controller'
 import {  useDispatch, useSelector } from 'react-redux';
 import { get_products , add_to_card, add_quantity, reduce_quantity, load_card_data, add_quantity_to_item  } from '../actions';
 import { useNavigate } from "react-router-dom";
+import '../css/cardView.css';
 
 export function Product() {
   let navigator = useNavigate()
@@ -76,11 +77,11 @@ useEffect(() => {
       {
         products.map((product) => {
           return (
-            <div className="container d-flex justify-content-between  align-items-center vh-100 col-4">
-              <Card style={{ width: "20rem" }}>
+            <div className="container d-flex justify-content-between  align-items-center  col-3 products">
+              <Card className="card">
                 <Card.Img
                   variant="top"
-                  src="https://websitedemos.net/plant-shop-02/wp-content/uploads/sites/931/2021/08/plants-ecommerce-product-featured-img-8-400x600.jpg"
+                  src={product.image}
                 />
                 <Card.Body className="text-center">
                   <Card.Title>{product.name}</Card.Title>
@@ -106,7 +107,8 @@ useEffect(() => {
           );
         })
       }
-      <Button variant="secondary" onClick={() => getCard()}>Go To Cart</Button>
+      <Button  className="btn bg-success button " variant="secondary" onClick={() => getCard()}>Go To Cart</Button>
     </div>
+    
   );
 }

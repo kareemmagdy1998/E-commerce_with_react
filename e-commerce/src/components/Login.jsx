@@ -59,6 +59,7 @@ export function Login() {
        
        localStorage.setItem('token', JSON.stringify(currentUser));
        dispatch(set_user(currentUser));
+       console.log(currentUser);
         navigate('/products');
      }
 
