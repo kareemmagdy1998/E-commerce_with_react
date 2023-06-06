@@ -1,0 +1,27 @@
+.products{
+    height: auto;
+    overflow: hidden;
+
+}
+
+.card{
+    height: 400px;
+    overflow: hidden;
+    width: 20rem;
+    border: none;
+     
+    
+
+}
+
+img{
+    object-fit:cover ;
+    height: 400px;
+    width: 300px;
+}
+
+.button{
+    position: absolute;
+    left: 45%;
+    bottom: 0;
+}
