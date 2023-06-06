@@ -54,6 +54,8 @@ useEffect(() => {
      
       dispatch(add_to_card(product , user));
     }
+    alert(`Added ${product.user_quantity} ${product.name} to your cart`);
+
   }
 
 
@@ -83,13 +85,21 @@ useEffect(() => {
                 <Card.Body className="text-center">
                   <Card.Title>{product.name}</Card.Title>
                   <Card.Title>Price:{product.price}$</Card.Title>
-                  <Card.Title >  {product.quantity > 0 ? "In Stock" : "Not Available"} </Card.Title>
                   <Card.Title>
-                    <button className="btn btn-primary" onClick={() => addQuantity(product.id)}> + </button>
-                    {product.user_quantity}
-                    <button className=" btn  btn-danger" onClick={() => reduceQuantity(product.id)}> - </button>
-                  </Card.Title>
-                  {user && <Button variant="secondary" onClick={() => add(product)}>Add To Cart</Button>}
+              {product.quantity > 0 ? (
+            product.quantity == 1 ? (
+                
+                " Only 1 left in stock - order soon!"
+                  
+                   ) : `In stock : ${product.quantity } `
+  ) : (
+    "Not Available"
+  )}
+</Card.Title>                  <Card.Title>
+                    {user && <button className="btn btn-primary" onClick={() => addQuantity(product.id)}> + </button>}
+                    {user && product.user_quantity}
+                      {user && <button className=" btn  btn-danger" onClick={() => reduceQuantity(product.id)}> - </button> }                  </Card.Title>
+                  {user && <Button variant="secondary" onClick={() => add(product)} disabled= {product.quantity<1}>Add To Cart</Button>}
                 </Card.Body>
               </Card>
             </div>

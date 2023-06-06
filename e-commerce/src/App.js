@@ -15,6 +15,7 @@ import NotAuthorized from './components/NotAuthorized';
 import {Footer} from './components/Footer';
 import { Home} from './pages/Home';
 import {Slider} from './components/Slider';
+import NotFound from './components/NotFound';
 
 function App() {
   const requireAuth = useAuth();
@@ -41,6 +42,7 @@ function App() {
         <Route path='/nav' element={<MyNav />}/>
         <Route path='/' element={<Home />}/>
         <Route path='/slider' element={<Slider />}/>
+        <Route path='*' element={<NotFound/>}/>
 
 
 

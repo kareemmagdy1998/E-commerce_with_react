@@ -6,6 +6,9 @@ import { useDispatch } from "react-redux";
 import { add_product } from "../actions";
 import { add, getProduct , update } from "../API/api_controller";
 import { useNavigate, useParams } from "react-router-dom";
+import NotAuthorized from './NotAuthorized';
+
+let user_role = JSON.parse(localStorage.getItem('token'));
 const schema = yup.object().shape({
   name: yup.string().required("Plant name is required"),
   quantity: yup
@@ -95,8 +98,9 @@ export function AddForm() {
       setBtn("Add");
     }
   }, []);
-
+  if (user_role !== null && user_role.role){
   return (
+   
     <div className="d-flex justify-content-center align-content-center container w-100 ">
       <div className="admin-form ">
         <Form className="w-100 py-3" onSubmit={handleSubmit}>
@@ -168,4 +172,11 @@ export function AddForm() {
       </div>
     </div>
   );
+    }
+    else {
+     
+        return(<div><NotAuthorized/></div>)
+
+     
+    }
 }

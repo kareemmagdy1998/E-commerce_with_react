@@ -1,0 +1,34 @@
+.not-found-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f9fa;
+  }
+  
+  .not-found-image {
+    width: 400px;
+    height: 400px;
+    background-image: url('https://t4.ftcdn.net/jpg/05/75/67/05/360_F_575670592_rkFs5yeP2wS3krEhJksIj75wuPQ92V5c.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  .not-found-text {
+    margin-left: 50px;
+  }
+  
+  .not-found-text h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  
+  .not-found-text p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .not-found-text a {
+    margin-top: 20px;
+  }

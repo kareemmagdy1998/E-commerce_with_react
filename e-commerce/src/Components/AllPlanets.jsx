@@ -46,7 +46,7 @@ export function AllPlanets() {
   let goToAdd = () => {
     navigator('/product/0/edit')
   }
-if(user_role.role){
+if( user_role !== null && user_role.role){
   return (
     <div className='container text-center p-5'>
     <Table striped bordered hover variant="success" >
