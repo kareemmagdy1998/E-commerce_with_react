@@ -22,8 +22,6 @@
       "id": 4
     },
     {
-<<<<<<< HEAD
-=======
       "name": "appleewqa",
       "quantity": "200",
       "price": "10000",
@@ -31,7 +29,6 @@
       "id": 5
     },
     {
->>>>>>> fdcb64822d90b8f49740cbe400f4e91595df9605
       "name": "updated",
       "price": "10000",
       "quantity": "200",
@@ -51,11 +48,29 @@
       "description": "wqe",
       "price": "10",
       "id": 8
+    },
+    {
+      "name": "mmmmmmmm",
+      "quantity": "234",
+      "description": "dasdasd",
+      "price": "23123",
+      "id": 9
+    },
+    {
+      "name": "fortest",
+      "quantity": "1",
+      "description": "eqwe",
+      "price": "3123",
+      "id": 10
+    },
+    {
+      "name": "testss",
+      "quantity": "0",
+      "description": "eqwe",
+      "price": "3123",
+      "id": 10
     }
   ],
-
-
-
   "users": [
     {
       "name": "user1",
@@ -71,7 +86,6 @@
       "role": true,
       "id": 2
     },
-    
     {
       "name": "kareem",
       "email": "kareemmagdy85888@gmail.com",
@@ -92,6 +106,20 @@
       "password": "has123",
       "role": false,
       "id": 6
+    },
+    {
+      "name": "1213",
+      "email": "123@gmail.com",
+      "password": "123456",
+      "role": false,
+      "id": 7
+    },
+    {
+      "name": "asd",
+      "email": "new@gmail.com",
+      "password": "123456",
+      "role": false,
+      "id": 8
     }
   ]
 }

@@ -10,7 +10,6 @@ export function Login() {
   const navigate = useNavigate();
   let dispatch = useDispatch()
   let user = JSON.parse(localStorage.getItem('token'));
-  console.log(user); 
   const [formValues, setFormValues] = useState({
     email: '',
     password: ''
