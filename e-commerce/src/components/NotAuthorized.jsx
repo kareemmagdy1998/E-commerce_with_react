@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function NotAuthorized() {
+export  function NotAuthorized() {
   return (
     <div className="container">
       <div className="row justify-content-center">

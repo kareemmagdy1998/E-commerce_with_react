@@ -9,7 +9,7 @@ import { set_user } from '../actions';
 export function Login() {
   const navigate = useNavigate();
   let dispatch = useDispatch()
-  const user = useSelector(state => state.user);
+  let user = JSON.parse(localStorage.getItem('token'));
   console.log(user);
   const [formValues, setFormValues] = useState({
     email: '',
@@ -52,11 +52,11 @@ export function Login() {
     e.preventDefault();
     
       const users = await getAllUsers();
-      const userExist=userLogin(users,"email","password",formValues);
+      const userExist=userLogin(user,"email","password",formValues);
 
       if (userExist) {
         
-       const currentUser = loggedUser(users,"email","password",formValues);
+       const currentUser = loggedUser(user,"email","password",formValues);
        
        localStorage.setItem('token', JSON.stringify(currentUser));
        dispatch(set_user(currentUser));

@@ -22,16 +22,6 @@
       "id": 4
     },
     {
-<<<<<<< HEAD
-=======
-      "name": "appleewqa",
-      "quantity": "200",
-      "price": "10000",
-      "image": "https://jooinn.com/images/green-plants-82.jpg",
-      "id": 5
-    },
-    {
->>>>>>> fdcb64822d90b8f49740cbe400f4e91595df9605
       "name": "updated",
       "price": "10000",
       "quantity": "200",
