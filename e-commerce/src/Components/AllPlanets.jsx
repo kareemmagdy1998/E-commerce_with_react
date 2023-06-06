@@ -6,11 +6,7 @@ import  '../Styles/forms.css';
 import { getAllProduct , getProduct , deleteProduct , add , update  } from '../API/api_controller'
 import {  useDispatch, useSelector } from 'react-redux';
 import { get_products , delete_product } from '../actions';
-<<<<<<< HEAD
 import NotAuthorized from './NotAuthorized';
-=======
-import {NotAuthorized} from './NotAuthorized';
->>>>>>> 69fb6eb5e3ea90c4b46d3aba637c8e77bbb637e6
 
 
 

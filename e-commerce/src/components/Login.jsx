@@ -9,7 +9,7 @@ import { set_user } from '../actions';
 export function Login() {
   const navigate = useNavigate();
   let dispatch = useDispatch()
-  const user = useSelector(state => state.user);
+  let user = JSON.parse(localStorage.getItem('token'));
   console.log(user);
   const [formValues, setFormValues] = useState({
     email: '',
