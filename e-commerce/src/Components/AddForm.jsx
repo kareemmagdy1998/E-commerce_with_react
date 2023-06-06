@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { add_product } from "../actions";
 import { add, getProduct , update } from "../API/api_controller";
 import { useNavigate, useParams } from "react-router-dom";
-import NotAuthorized from './NotAuthorized';
+import {NotAuthorized }from './NotAuthorized';
 
 let user_role = JSON.parse(localStorage.getItem('token'));
 const schema = yup.object().shape({
@@ -57,7 +57,7 @@ export function AddForm() {
 
     try {
       await schema.validate({ name, quantity, description, price }, { abortEarly: false });
-      let plant = { name: name, quantity: quantity , description: description, price : price };
+      let plant = { name: name, quantity: quantity , description: description, price : price ,image : "https://websitedemos.net/plant-shop-02/wp-content/uploads/sites/931/2021/08/plants-ecommerce-product-featured-img-14-400x600.jpg"};
       if (id == 0)
       {
       await add(plant)

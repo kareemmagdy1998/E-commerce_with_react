@@ -8,33 +8,33 @@ export function Slider() {
         <Carousel.Item>
           <img
             className="d-block"
-            src="https://images.pexels.com/photos/808510/pexels-photo-808510.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            src="https://cdn.pixabay.com/photo/2017/03/27/14/17/christmas-tree-2179023_640.jpg"
             alt="First slide"
           />
           <Carousel.Caption>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            
           </Carousel.Caption>
         </Carousel.Item>
 
         <Carousel.Item>
           <img
             className="d-block"
-            src="https://images.pexels.com/photos/807598/pexels-photo-807598.jpeg?auto=compress&cs=tinysrgb&w=1600"
+            src="https://cdn.pixabay.com/photo/2018/03/04/09/51/space-3197611_1280.jpg"
             alt="Second slide"
           />
           <Carousel.Caption>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            
           </Carousel.Caption>
         </Carousel.Item>
 
         <Carousel.Item>
           <img
             className="d-block mx-auto"
-            src="https://images.pexels.com/photos/1090977/pexels-photo-1090977.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            src="https://cdn.pixabay.com/photo/2017/03/23/12/23/vintage-2168174_640.jpg"
             alt="Third slide"
           />
           <Carousel.Caption>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>

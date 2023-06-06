@@ -33,6 +33,7 @@ export const ProductReducer = (state = init_state, action) =>{
                 
             return {...state, card: state.card.map((item) => 
                 {
+                    let user = JSON.parse(localStorage.getItem('token'));
                     if(item.product.id == action.payload && item.username.email == user.email)
                 {
                     item.product.user_quantity = item.product.user_quantity + action.quantity;
@@ -44,6 +45,7 @@ export const ProductReducer = (state = init_state, action) =>{
             case "reduce_quantity_from_item":
             return {...state, card: state.card.map((item) => 
                 {
+                    let user = JSON.parse(localStorage.getItem('token'));
                     if(item.product.id == action.payload && item.product.user_quantity > 1 && item.username.email == user.email)
                 {
                     --item.product.user_quantity;

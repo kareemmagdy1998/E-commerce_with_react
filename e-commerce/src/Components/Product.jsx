@@ -73,33 +73,33 @@ useEffect(() => {
   }
 
   return (
-    <div className="container d-flex justify-content-between  align-items-center vh-100 flex-wrap">
+    <div className="container d-flex  flex-wrap ">
       {
         products.map((product) => {
           return (
-            <div className="container d-flex justify-content-between  align-items-center  col-3 products">
-              <Card className="card">
+            <div className="container d-flex  align-items-center row col-4 ">
+              <Card className="card ">
                 <Card.Img
                   variant="top"
                   src={product.image}
                 />
                 <Card.Body className="text-center">
                   <Card.Title>{product.name}</Card.Title>
-                  <Card.Title>Price:{product.price}$</Card.Title>
+                  <Card.Title>{product.price}$</Card.Title>
                   <Card.Title>
               {product.quantity > 0 ? (
             product.quantity == 1 ? (
                 
                 " Only 1 left in stock - order soon!"
                   
-                   ) : `In stock : ${product.quantity } `
+                   ) : ` ${product.quantity } Left `
   ) : (
     "Not Available"
   )}
-</Card.Title>                  <Card.Title>
-                    {user && <button className="btn btn-primary" onClick={() => addQuantity(product.id)}> + </button>}
+                    </Card.Title>                  <Card.Title>
+                    {user && <button className="btn fs-4 m-1" onClick={() => addQuantity(product.id)}> + </button>}
                     {user && product.user_quantity}
-                      {user && <button className=" btn  btn-danger" onClick={() => reduceQuantity(product.id)}> - </button> }                  </Card.Title>
+                      {user && <button className=" btn  fs-3 m-1" onClick={() => reduceQuantity(product.id)}> - </button> }                  </Card.Title>
                   {user && <Button variant="secondary" onClick={() => add(product)} disabled= {product.quantity<1}>Add To Cart</Button>}
                 </Card.Body>
               </Card>
@@ -107,7 +107,7 @@ useEffect(() => {
           );
         })
       }
-      <Button  className="btn bg-success button " variant="secondary" onClick={() => getCard()}>Go To Cart</Button>
+      {user&&<Button  className="btn bg-success button " variant="secondary" onClick={() => getCard()}>Go To Cart</Button>}
     </div>
     
   );

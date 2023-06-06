@@ -1,39 +1,47 @@
 {
   "products": [
     {
-      "name": "apple",
+      "name": "Zz Plants",
       "quantity": "200",
-      "price": "10000",
+      "price": "89.99",
       "image": "https://websitedemos.net/plant-shop-02/wp-content/uploads/sites/931/2021/08/plants-ecommerce-product-featured-img-14-400x600.jpg",
       "id": 1
     },
     {
       "name": "Bird of Paradise",
-      "price": "10000",
-      "quantity": "200",
+      "price": "74.99",
+      "quantity": "1",
       "image": "https://websitedemos.net/plant-shop-02/wp-content/uploads/sites/931/2021/08/plants-ecommerce-product-featured-img-5-400x600.jpg",
       "id": 3
     },
     {
-      "name": "laptop-lenovo",
-      "price": "27000",
+      "name": "Calathea Beauty Star",
+      "price": "90",
       "quantity": "500",
       "image": "https://websitedemos.net/plant-shop-02/wp-content/uploads/sites/931/2021/08/plants-ecommerce-product-featured-img-4-400x600.jpg",
       "id": 4
     },
     {
-      "name": "appleewqa",
-      "quantity": "200",
-      "price": "10000",
-      "image": "https://jooinn.com/images/green-plants-82.jpg",
+      "name": "Birdnest Japanese",
+      "quantity": "0",
+      "price": "55",
+      "image": "https://websitedemos.net/plant-shop-02/wp-content/uploads/sites/931/2021/08/plants-ecommerce-product-featured-img-16-400x600.jpg",
       "id": 5
     },
     {
-      "name": "updated",
-      "price": "10000",
+      "name": "Hoya Obovatum",
+      "price": "100",
       "quantity": "200",
       "image": "https://websitedemos.net/plant-shop-02/wp-content/uploads/sites/931/2021/08/plants-ecommerce-product-featured-img-16-400x600.jpg",
       "id": 6
+    },
+    {
+      "name": "Trquaz",
+      "quantity": "200",
+      "description": "",
+      "price": "99.99",
+      "image": "https://websitedemos.net/plant-shop-02/wp-content/uploads/sites/931/2021/08/plants-ecommerce-product-featured-img-14-400x600.jpg",
+      "id": 7
     }
   ],
   "users": [
