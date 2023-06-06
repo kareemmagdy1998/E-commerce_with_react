@@ -45,8 +45,11 @@ function App() {
 
 
       </Routes>
+<<<<<<< HEAD
       {/* <Footer /> */}
+=======
       
+>>>>>>> 69fb6eb5e3ea90c4b46d3aba637c8e77bbb637e6
       </div>
 
   );
